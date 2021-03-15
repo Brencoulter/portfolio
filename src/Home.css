@@ -19,6 +19,14 @@ html {
 
 }
 
+h2 {
+    color: #3affa6;
+}
+
+p {
+    color: white
+}
+
 .dark-background {
     background-color: rgba(40, 40, 40, 1);
 }

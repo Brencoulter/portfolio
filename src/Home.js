@@ -1,6 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
-import Headshot from "./images/dragon-front.png"
-import GameScreenshot from "./images/game-screenshot.png"
+import Headshot from "./images/dragon-front.png";
+import GameScreenshot from "./images/game-screenshot.png";
+import Melissa from "./images/nutrition-with-melissa.png";
+import CruxCleaning from "./images/crux-cleaning.png";
+import Traveling from "./images/this-is-traveling.png";
 import {
     Jumbotron,
     Container,
@@ -137,12 +140,12 @@ export default function Home() {
                      <p>A WordPress site built for a sole trader</p>
                     </Col>
                     <Col md={6} xs={12}>
-                        <a href="http://www.nutritionwithmelissa.com.au/" ><Image className="full-width" src={GameScreenshot} alt="Website Screenshot" /></a>
+                        <a href="http://www.nutritionwithmelissa.com.au/" target="_blank"><Image className="full-width" src={Melissa} alt="Nutrition With Melissa" /></a>
                     </Col>
                 </Row>
                 <Row>
                 <Col md={6} xs={12}>
-                        <a href="https://www.thisistraveling.com/" ><Image className="full-width" src={GameScreenshot} alt="Website Screenshot" /></a>
+                        <a href="https://www.thisistraveling.com/" target="_blank"><Image className="full-width" src={Traveling} alt="Website Screenshot" /></a>
                     </Col>
                     <Col md={6} xs={12}>
                     <h2>This Is Traveling</h2>
@@ -154,7 +157,7 @@ export default function Home() {
                      <p>A simple small-business website built on WordPress</p>
                     </Col>
                     <Col md={6} xs={12}>
-                        <a href="https://www.cruxcleaning.ca/" ><Image className="full-width" src={GameScreenshot} alt="Website Screenshot" /></a>
+                        <a href="https://www.cruxcleaning.ca/" target="_blank"><Image className="full-width" src={CruxCleaning} alt="Website Screenshot" /></a>
                     </Col>
                 </Row>
                 
