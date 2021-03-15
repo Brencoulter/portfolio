@@ -1,0 +1,41 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+.remove-whitespace {
+    margin: 0;
+    padding: 0;
+}
+
+#welcome {
+    background-color: rgba(40, 40, 40, 1);
+    height: 100vh;
+    margin: 0;
+}
+
+#welcome h1 {
+    color: #3affa6;
+    font-size: 4em;
+
+}
+
+.dark-background {
+    background-color: rgba(40, 40, 40, 1);
+}
+
+.about {
+    background-color: rgba(40, 40, 40, 0.5);
+}
+
+.full-width {
+    width: 100%;
+}
+
+.coming-soon-overlay {
+    position: absolute;
+    text-align: center;
+    background-color:rgba(199, 199, 199, 0.2);
+    line-height: 100px;
+    height: 100%;
+    width: 100%;
+}
