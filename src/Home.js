@@ -13,7 +13,7 @@ import {
     Button
 } from "react-bootstrap"
 import "./Home.css"
-import { CodeSquare, Code, Calculator, Controller, Bullseye, Laptop } from 'react-bootstrap-icons';
+import { CodeSquare, Code, Calculator, Controller, Bullseye, Envelope, Laptop, Telephone } from 'react-bootstrap-icons';
 
 export default function Home() {
     const myRef = useRef(null)
@@ -63,6 +63,9 @@ export default function Home() {
                         <Button onClick={toggleSkills}>What I can do</Button>
                         <Button onClick={toggleProjects}>What I've been up to</Button>
                         <Button onClick={toggleWebsites}>Real Websites</Button>
+                        <p>Or say hi!</p>
+                        <p><span><Telephone /></span> 0473 137 876</p>
+                        <p><span><Envelope /></span> brencoulter@hotmail.com</p>
                     </Col>
                     <Col md={6} xs={12}>
                     <Image src={Headshot} alt="Headshot" className="full-width"/>
@@ -122,7 +125,34 @@ export default function Home() {
                 </Row>
                 <Row>
                     <Col>
-                     
+                        <h2>Languages</h2>
+                        <ul>
+                            <li>Javascript</li>
+                            <li>Ruby</li>
+                            <li>Python</li>
+                        </ul>
+                    </Col>
+                    <Col>
+                        <h2>Frameworks and Libraries</h2>
+                        <ul>
+                            <li>ReactJS</li>
+                            <li>ExpressJS</li>
+                            <li>Ruby On Rails</li>
+                        </ul>
+                    </Col>
+                    <Col>
+                        <h2>Environments Etc</h2>
+                        <ul>
+                            <li>NodeJS</li>
+                            <li>Git/GitHub</li>
+                        </ul>
+                    </Col>
+                    <Col>
+                        <h2>Databases</h2>
+                        <ul>
+                            <li>Relational - MySQL</li>
+                            <li>Non-Relational - MongoDB</li>
+                        </ul>
                     </Col>
                 </Row>
                 
