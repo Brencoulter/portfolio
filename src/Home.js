@@ -86,12 +86,12 @@ export default function Home() {
                     <p>Navigate your way through multiple rooms, collecting items and defeating various monsters. Can you beat the boss and emerge victorious?</p>
                     <a href="https://the-game-brencoulter.vercel.app/" target="_blank" ><Button>Play Now!</Button></a>
                     </Col>
-                    <Col md={6} xs={12}>
+                    <Col md={6} xs={12} className="image-col">
                     <a href="https://the-game-brencoulter.vercel.app/" target="_blank" ><Image src={GameScreenshot} alt="Game Screenshot" className="full-width"/></a>
                     </Col>
                 </Row>
                 <Row>
-                <Col md={6} xs={12}>
+                <Col md={6} xs={12} className="image-col">
                     <h3 className="coming-soon-overlay">Coming Soon</h3>
                     <Image src={GameScreenshot} alt="Game Screenshot" className="full-width"/>
                 </Col>
@@ -105,8 +105,8 @@ export default function Home() {
                     <Bullseye fill="#3affa6"/>
                     <h2>Click Speed Test</h2>
                     <Button>Play Now!</Button>
-                    </Col>
-                    <Col md={6} xs={12}>
+                    </Col >
+                    <Col md={6} xs={12} className="image-col">
                     <h3 className="coming-soon-overlay">Coming Soon</h3>
                     <Image src={GameScreenshot} alt="Game Screenshot" className="full-width"/>
                 </Col>
@@ -137,26 +137,27 @@ export default function Home() {
                 <Row>
                 <Col md={6} xs={12}>
                      <h2>Nutrition With Melissa</h2>
-                     <p>A WordPress site built for a sole trader</p>
+                     <p>A WordPress site built for a sole trader, including a bookings system</p>
                     </Col>
-                    <Col md={6} xs={12}>
+                    <Col md={6} xs={12} className="image-col">
                         <a href="http://www.nutritionwithmelissa.com.au/" target="_blank"><Image className="full-width" src={Melissa} alt="Nutrition With Melissa" /></a>
                     </Col>
                 </Row>
                 <Row>
-                <Col md={6} xs={12}>
+                <Col md={6} xs={12} className="image-col">
                         <a href="https://www.thisistraveling.com/" target="_blank"><Image className="full-width" src={Traveling} alt="Website Screenshot" /></a>
                     </Col>
                     <Col md={6} xs={12}>
                     <h2>This Is Traveling</h2>
+        <p>A travel blog for an adventurer to interact and share with her follower. Built on WordPress, there was a significant amount of custom code integrated with the base plugins</p>
                     </Col>
                 </Row>
                 <Row>
                     <Col md={6} xs={12}>
                      <h2>Crux Cleaning</h2>
-                     <p>A simple small-business website built on WordPress</p>
+                     <p>A simple small-business website also built on WordPress</p>
                     </Col>
-                    <Col md={6} xs={12}>
+                    <Col md={6} xs={12} className="image-col">
                         <a href="https://www.cruxcleaning.ca/" target="_blank"><Image className="full-width" src={CruxCleaning} alt="Website Screenshot" /></a>
                     </Col>
                 </Row>
