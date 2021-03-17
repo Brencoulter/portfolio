@@ -14,16 +14,21 @@ html {
 }
 
 #welcome h1 {
+    text-align: left;
     color: #3affa6;
     font-size: 4em;
 
+}
+
+#welcome p {
+    color: white
 }
 
 h2 {
     color: #3affa6;
 }
 
-p {
+* p {
     color: white
 }
 
@@ -37,6 +42,10 @@ p {
 
 .full-width {
     width: 100%;
+}
+
+.image-col {
+    padding: 10px;
 }
 
 .coming-soon-overlay {
