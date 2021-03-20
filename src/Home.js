@@ -20,46 +20,23 @@ const mint = "#66FCF1";
 const darker = "#45A29E"
 
 export default function Home() {
-    const myRef = useRef(null)
-    const firstRender = useRef(false)
-    const [skillsToggle, setSkillsToggle] = useState(false)
-    const [projectsToggle, setProjectsToggle] = useState(true)
-    const [websitesToggle, setWebsitesToggle] = useState(false)
+    const skillsRef = useRef(null)
+    const projectsRef = useRef(null)
+    const websitesRef = useRef(null)
 
-    const toggleSkills = () => {
-        setSkillsToggle(true)
-        setProjectsToggle(false)
-        setWebsitesToggle(false)
-    }
-    const toggleProjects = () => {
-        setSkillsToggle(false)
-        setProjectsToggle(true)
-        setWebsitesToggle(false)
-    }
-    const toggleWebsites = () => {
-        setSkillsToggle(false)
-        setProjectsToggle(false)
-        setWebsitesToggle(true)
-    }
+    const skillsScroll = () => skillsRef.current.scrollIntoView() 
+    const projectsScroll = () => projectsRef.current.scrollIntoView() 
+    const websitesScroll = () => websitesRef.current.scrollIntoView() 
 
-    useEffect(() => {
-        if (firstRender.current) executeScroll()
-    }, [skillsToggle, projectsToggle])
-    
-    useEffect(() => {
-        firstRender.current = true
-    },[])
-
-    const executeScroll = () => myRef.current.scrollIntoView()    
     return(
         <>
-        <Container fluid >
-            <div className="floating-buttons">
-            <h4 className="mint click" onClick={toggleSkills}>&bull;Skills</h4>
-            <h4 className="mint click" onClick={toggleProjects}>&bull;Projects</h4>
-            <h4 className="mint click" onClick={toggleWebsites}>&bull;Websites</h4>
-            </div>
-        </Container>
+            <Container fluid >
+                <div className="floating-buttons">
+                <h4 className="mint click" onClick={skillsScroll}>&bull;Skills</h4>
+                <h4 className="mint click" onClick={projectsScroll}>&bull;Projects</h4>
+                <h4 className="mint click" onClick={websitesScroll}>&bull;Websites</h4>
+                </div>
+            </Container>
             <Jumbotron fluid id="welcome" className="remove-whitespace">
                 <div className="welcome">
                 <h1 className="mint">WELCOME...</h1>
@@ -80,9 +57,9 @@ export default function Home() {
                                 and have taught myself multiple languages, the most recent of which is JavaScript (which this website is built upon)</p>
                             <p>So take a look around! What do you want to see?</p>
                             <div className="links">
-                                <h4 className="mint click" onClick={toggleSkills}>&lt;What I can do&gt;</h4>
-                                <h4 className="mint click" onClick={toggleProjects}>&lt;What I've been up to&gt;</h4>
-                                <h4 className="mint click" onClick={toggleWebsites}>&lt;Real Websites&gt;</h4>
+                                <h4 className="mint click" onClick={skillsScroll}>&lt;What I can do&gt;</h4>
+                                <h4 className="mint click" onClick={projectsScroll}>&lt;What I've been up to&gt;</h4>
+                                <h4 className="mint click" onClick={websitesScroll}>&lt;Real Websites&gt;</h4>
                             </div>
                             <p>Or feel free to get in contact with me! I'm always down for a chat. You can also see the code for everything live on GitHub</p>
                             <div className="contact">
@@ -97,7 +74,7 @@ export default function Home() {
                     </Col>
                 </Row>
             </Container>
-            {projectsToggle && <Container ref={myRef} fluid id="projects" className="dark-background remove-whitespace">
+            <Container ref={projectsRef} fluid id="projects" className="dark-background remove-whitespace">
                 <Row className="title-row">
                     <Col xs={12}>
                         <h2>&lt;PROJECTS&gt;</h2>
@@ -142,8 +119,8 @@ export default function Home() {
                         <Image src={GameScreenshot} alt="Game Screenshot" className="full-width" />
                     </Col>
                 </Row>
-            </Container>}
-            {skillsToggle && <Container ref={myRef} fluid id="skills" className="dark-background remove-whitespace">
+            </Container>
+            <Container ref={skillsRef} fluid id="skills" className="dark-background remove-whitespace">
             <Row className="title-row">
                     <Col>
                     <CodeSquare fill={mint} className="icon"/>
@@ -184,8 +161,8 @@ export default function Home() {
                         </ul>
                     </Col>
                 </Row>   
-            </Container>}
-            {websitesToggle && <Container ref={myRef} fluid id="websites" className="dark-background remove-whitespace">
+            </Container>
+            <Container ref={websitesRef} fluid id="websites" className="dark-background remove-whitespace">
                 <Row className="title-row">
                     <Col>
                         <h2 className="mint">&lt;WEBSITES&gt;</h2>                        
@@ -233,7 +210,7 @@ export default function Home() {
                         <a href="https://www.cruxcleaning.ca/" target="_blank"><Image className="full-width screenshot" src={CruxCleaning} alt="Website Screenshot"/></a>
                     </Col>
                 </Row> 
-            </Container>}
+            </Container>
 
         </>
     )
