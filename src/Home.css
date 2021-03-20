@@ -16,7 +16,14 @@ Tites: #66FCF1
 Text: #C5C6C7
 */
 
-
+body {
+    background-image: url(./images/background.png);
+    background-repeat: repeat-y;
+    background-size: 100vw;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 10px;
+}
 
 html {
     scroll-behavior: smooth;
@@ -30,11 +37,11 @@ html {
 /*General Selectors */
 
 .dark-background {
-    background-color: rgb(40, 40, 40);
+    background-color: rgba(40, 40, 40, 0.95);
 }
 
 .blue-background {
-    background-color: rgba(31, 40, 51, 1);
+    background-color: rgba(31, 40, 51, 0.95);
 }
 
 .full-width {
@@ -79,13 +86,7 @@ a {
 /*Landing Jumbotron */
 
 #welcome {
-    background: url(./images/background.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-blend-mode: multiply;
-background-color: rgba(40,40,40,0.3);
+    background-color:rgba(31, 40, 51, 0);
     height: 100vh;
     margin: auto;
 }
@@ -237,20 +238,37 @@ background-color: rgba(40,40,40,0.3);
 .floating-buttons {
     position: fixed;
     text-align: center;
-    top: 40vh;
+    display: inline;
+    padding: 20px;
+    font-size: 30px;
     right: 0;
     z-index: 100;
-
 }
 
-.floating-buttons h4 {
-    background-color: rgba(36, 40, 46, 0.7);
-    border-radius: 10px;
+.floating-buttons a {
+    color: #45A29E;;
     padding: 10px;
-    color: #45A29E;
 }
+
+.floating-buttons a:hover {
+    color: #66FCF1;
+}
+
 
 .disabled:hover {
     cursor: default;
     text-decoration: none;
+}
+
+.tech-icon {
+    display: inline;
+    padding: "50px";
+}
+
+.tech-icon:hover + .icon-label {
+    display: block;
+}
+
+.icon-label {
+    display: none;
 }

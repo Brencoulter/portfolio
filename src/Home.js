@@ -4,7 +4,15 @@ import GameScreenshot from "./images/game-screenshot.png";
 import Melissa from "./images/nutrition-with-melissa.png";
 import CruxCleaning from "./images/crux-cleaning.png";
 import Traveling from "./images/this-is-traveling.png";
-import Background from "./images/background.png"
+import HTML from "./icons/html5.svg";
+import CSS from "./icons/css3.svg";
+import JS from "./icons/js.png";
+import Mongo from "./icons/mongo.png";
+import Python from "./icons/python.svg";
+import Ruby from "./icons/ruby.png";
+import ReactIcon from "./icons/react.svg";
+import Node from "./icons/nodejs.svg";
+
 import {
     Jumbotron,
     Container,
@@ -14,7 +22,18 @@ import {
     Button
 } from "react-bootstrap"
 import "./Home.css"
-import { CodeSquare, Code, Camera, Calculator, Controller, Bullseye, Droplet, People, Envelope, Github, Laptop, Telephone } from 'react-bootstrap-icons';
+import { Bootstrap, Camera, Calculator, Controller, Bullseye, Droplet, People, Envelope, Github, Laptop, Telephone } from 'react-bootstrap-icons';
+
+const techIcons = [
+    [HTML, "HTML"],
+    [CSS, "CSS"],
+    [JS, "JavaScript"],
+    [Mongo, "MongoDB"],
+    [Python, "Python3"],
+    [Ruby, "Ruby"],
+    [ReactIcon, "ReactJS"],
+    [Node, "NodeJS"]
+]
 
 const mint = "#66FCF1";
 const darker = "#45A29E"
@@ -32,19 +51,19 @@ export default function Home() {
         <>
             <Container fluid >
                 <div className="floating-buttons">
-                <h4 className="mint click" onClick={skillsScroll}>&bull;Skills</h4>
-                <h4 className="mint click" onClick={projectsScroll}>&bull;Projects</h4>
-                <h4 className="mint click" onClick={websitesScroll}>&bull;Websites</h4>
+                    <a href="https://github.com/brencoulter" target="_blank"><Github /></a>
+                    <a href="https://github.com/brencoulter" target="_blank"><Github /></a>
+                    <a href="https://github.com/brencoulter" target="_blank"><Github /></a>
                 </div>
             </Container>
+
             <Jumbotron fluid id="welcome" className="remove-whitespace">
                 <div className="welcome">
                 <h1 className="mint">WELCOME...</h1>
-                <p>... to my digital playground</p>
                 <p style={{color: "#707793"}}>Scroll down to see what this is all about</p>
                 </div>
             </Jumbotron>
-            <Container fluid className="about remove-whitespace blue-background">
+            <Container fluid className="about remove-whitespace blue-background" style={{ marginTop: "10px", borderRadius: "30px"}}>
                 <Row>
                     <Col md={7} xs={12} className="about-text">
                         <div className="column-padding">
@@ -54,10 +73,9 @@ export default function Home() {
                                 This website is proof that you don't need a background in software engineering to code, 
                                 and is a space for me to showcase my digital projects. 
                                 I have developed multiple WordPress websites for various small businesses, 
-                                and have taught myself multiple languages, the most recent of which is JavaScript (which this website is built upon)</p>
-                            <p>So take a look around! What do you want to see?</p>
+                                and have taught myself multiple languages, the most recent of which is JavaScript (which this website is built upon).</p>
+                            <p>So take a look around! Play the games, and check out the websites I've built.</p>
                             <div className="links">
-                                <h4 className="mint click" onClick={skillsScroll}>&lt;What I can do&gt;</h4>
                                 <h4 className="mint click" onClick={projectsScroll}>&lt;What I've been up to&gt;</h4>
                                 <h4 className="mint click" onClick={websitesScroll}>&lt;Real Websites&gt;</h4>
                             </div>
@@ -65,7 +83,6 @@ export default function Home() {
                             <div className="contact">
                                 <p><span><Telephone /></span> 0473 137 876</p>
                                 <p><span><Envelope /></span> brencoulter@hotmail.com</p>
-                                <a href="https://github.com/brencoulter" target="_blank"><p><span><Github /></span> github.com/Brencoulter</p></a>
                             </div>
                         </div>
                     </Col>
@@ -74,7 +91,7 @@ export default function Home() {
                     </Col>
                 </Row>
             </Container>
-            <Container ref={projectsRef} fluid id="projects" className="dark-background remove-whitespace">
+            <Container ref={projectsRef} fluid id="projects" className="dark-background remove-whitespace" style={{marginTop: "10px", borderRadius: "30px"}}>
                 <Row className="title-row">
                     <Col xs={12}>
                         <h2>&lt;PROJECTS&gt;</h2>
@@ -120,49 +137,31 @@ export default function Home() {
                     </Col>
                 </Row>
             </Container>
-            <Container ref={skillsRef} fluid id="skills" className="dark-background remove-whitespace">
-            <Row className="title-row">
+            <Container ref={skillsRef} fluid id="skills" className="blue-background remove-whitespace" style={{ marginTop: "10px", borderRadius: "30px"}}>
+                <Row className="title-row">
                     <Col>
-                    <CodeSquare fill={mint} className="icon"/>
-                        <h2>SKILLS</h2>                        
+                        <h2>&lt;TECHNOLOGIES&gt;</h2>  
+                        <p>Tech I know</p>                      
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
-                        <h3>Languages</h3>
-                        <ul>
-                            <li>Javascript</li>
-                            <li>Ruby</li>
-                            <li>Python</li>
-                            <li>HTML/CSS</li>
-                        </ul>
-                    </Col>
-                    <Col>
-                        <h3>Frameworks and Libraries</h3>
-                        <ul>
-                            <li>ReactJS</li>
-                            <li>Bootstrap</li>
-                            <li>ExpressJS</li>
-                            <li>Ruby On Rails</li>
-                        </ul>
-                    </Col>
-                    <Col>
-                        <h3>Environments Etc</h3>
-                        <ul>
-                            <li>NodeJS</li>
-                            <li>Git/GitHub</li>
-                        </ul>
-                    </Col>
-                    <Col>
-                        <h3>Databases</h3>
-                        <ul>
-                            <li>Relational - MySQL</li>
-                            <li>Non-Relational - MongoDB</li>
-                        </ul>
-                    </Col>
+                {techIcons.map(icon => {
+                                return (
+                                    <Col xs={2} style={{minHeight: "30vw", padding: "50px"}}>
+                                        <Image src={icon[0]} className="tech-icon" style={{width: "100%"}} />
+                                        <p className="icon-label">{icon[1]}</p>
+                                    </Col>
+                                )
+                            })}
+                <Col xs={2}>
+                    <Github fill={darker} style={{fontSize: "15vw"}}/>
+                </Col>
+                <Col xs={2}>
+                    <Bootstrap fill={darker} style={{fontSize: "15vw"}}/>
+                </Col>
                 </Row>   
             </Container>
-            <Container ref={websitesRef} fluid id="websites" className="dark-background remove-whitespace">
+            <Container ref={websitesRef} fluid id="websites" className="dark-background remove-whitespace" style={{ marginTop: "10px", borderRadius: "30px"}}>
                 <Row className="title-row">
                     <Col>
                         <h2 className="mint">&lt;WEBSITES&gt;</h2>                        
