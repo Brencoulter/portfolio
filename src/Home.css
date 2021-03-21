@@ -1,6 +1,8 @@
-/* {
+/* 
+* {
     border: 1px red solid;
-} */
+} 
+*/
 
 /* Colours:
 Mint: #3BBA9C
@@ -14,13 +16,14 @@ New Colours:
 Background: #1F2833
 Tites: #66FCF1
 Text: #C5C6C7
+Dark Text: #45A29E
 */
 
 body {
     background-image: url(./images/background.png);
-    background-repeat: repeat-y;
+    background-repeat: repeat;
     background-size: 100vw;
-    background-position: center;
+    background-position: top;
     background-attachment: fixed;
     padding: 10px;
 }
@@ -43,6 +46,7 @@ html {
 .blue-background {
     background-color: rgba(31, 40, 51, 0.95);
 }
+
 
 .full-width {
     width: 100%;
@@ -125,7 +129,7 @@ a {
 
 .links h4 {
     font-size: 25px;
-    color: #66FCF1;
+    color: #45A29E;
     width: 300px;
     margin: auto;
     padding: 5px;
@@ -151,6 +155,7 @@ a {
 .info-rows {
     padding-top: 25px;
     padding-bottom: 25px;
+    align-items: center;
 }
 
 
@@ -229,18 +234,13 @@ a {
     width: 100%;
 }
 
-.click:hover {
-    color: #2E3047;
-    background-color: #3BBA9C;
-    border-radius: 10px;
-}
 
 .floating-buttons {
     position: fixed;
     text-align: center;
     display: inline;
     padding: 20px;
-    font-size: 30px;
+    font-size: 40px;
     right: 0;
     z-index: 100;
 }
@@ -250,7 +250,7 @@ a {
     padding: 10px;
 }
 
-.floating-buttons a:hover {
+.floating-buttons a:hover, .click:hover {
     color: #66FCF1;
 }
 
@@ -258,6 +258,11 @@ a {
 .disabled:hover {
     cursor: default;
     text-decoration: none;
+}
+
+.tech-icon-container {
+    min-height: 175px;
+    padding: 20px;
 }
 
 .tech-icon {
@@ -271,4 +276,5 @@ a {
 
 .icon-label {
     display: none;
+    padding-top: 10px;
 }

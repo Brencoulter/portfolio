@@ -4,14 +4,23 @@ import GameScreenshot from "./images/game-screenshot.png";
 import Melissa from "./images/nutrition-with-melissa.png";
 import CruxCleaning from "./images/crux-cleaning.png";
 import Traveling from "./images/this-is-traveling.png";
-import HTML from "./icons/html5.svg";
-import CSS from "./icons/css3.svg";
+import Resume from "./resumeBrendanCoulter.pdf"
+
+
+//Tech Icons
+import BootstrapIcon from "./icons/bootstrap2.png";
+import ExpressJS from "./icons/expressjs.png";
+import HTML from "./icons/html.png";
+import CSS from "./icons/css.png";
+import GithubIcon from "./icons/github.png"
 import JS from "./icons/js.png";
-import Mongo from "./icons/mongo.png";
-import Python from "./icons/python.svg";
+import Mongo from "./icons/mongodb.png";
+import Python from "./icons/python3.png";
 import Ruby from "./icons/ruby.png";
-import ReactIcon from "./icons/react.svg";
-import Node from "./icons/nodejs.svg";
+import Rails from "./icons/rails.png";
+import ReactIcon from "./icons/react.png";
+import Node from "./icons/nodejs.png";
+import ReactBootstrapIcon from "./icons/reactbootstrap.png"
 
 import {
     Jumbotron,
@@ -19,20 +28,26 @@ import {
     Row,
     Col,
     Image,
-    Button
+    OverlayTrigger,
+    Tooltip
 } from "react-bootstrap"
 import "./Home.css"
-import { Bootstrap, Camera, Calculator, Controller, Bullseye, Droplet, People, Envelope, Github, Laptop, Telephone } from 'react-bootstrap-icons';
+import { Camera, Calculator, Controller, Bullseye, Droplet, Github, People, Envelope, Telephone, FileEarmarkPerson } from 'react-bootstrap-icons';
 
 const techIcons = [
+    [BootstrapIcon, "Bootstrap"],
+    [GithubIcon, "Github"],
+    [ExpressJS, "ExpressJS"],
     [HTML, "HTML"],
     [CSS, "CSS"],
     [JS, "JavaScript"],
     [Mongo, "MongoDB"],
     [Python, "Python3"],
     [Ruby, "Ruby"],
+    [Rails, "Ruby on Rails"],
     [ReactIcon, "ReactJS"],
-    [Node, "NodeJS"]
+    [Node, "NodeJS"],
+    [ReactBootstrapIcon, "React Bootstrap"]
 ]
 
 const mint = "#66FCF1";
@@ -42,28 +57,48 @@ export default function Home() {
     const skillsRef = useRef(null)
     const projectsRef = useRef(null)
     const websitesRef = useRef(null)
+    const contactRef = useRef(null)
 
     const skillsScroll = () => skillsRef.current.scrollIntoView() 
     const projectsScroll = () => projectsRef.current.scrollIntoView() 
     const websitesScroll = () => websitesRef.current.scrollIntoView() 
+    const contactScroll = () => contactRef.current.scrollIntoView()
+
+    const downloadFile = () => {
+        //window.location.href = "https://portfolio-brencoulter.vercel.app/src/resumeBrendanCoulter.pdf"
+        window.location.href = "./resumeBrendanCoulter.pdf"
+      }
 
     return(
         <>
             <Container fluid >
                 <div className="floating-buttons">
-                    <a href="https://github.com/brencoulter" target="_blank"><Github /></a>
-                    <a href="https://github.com/brencoulter" target="_blank"><Github /></a>
-                    <a href="https://github.com/brencoulter" target="_blank"><Github /></a>
+                <OverlayTrigger
+                        placement="bottom"
+                        delay={{ show: 50, hide: 50 }}
+                        overlay={<Tooltip>Github</Tooltip>}
+                    >
+                        <a href="https://github.com/brencoulter" target="_blank"><Github /></a>
+    
+                    </OverlayTrigger>
+                    
+                    <OverlayTrigger
+                        placement="bottom"
+                        delay={{ show: 50, hide: 50 }}
+                        overlay={<Tooltip>Resume</Tooltip>}
+                    >
+                        <a href={Resume} download><FileEarmarkPerson /></a>
+    
+                    </OverlayTrigger>
                 </div>
             </Container>
-
             <Jumbotron fluid id="welcome" className="remove-whitespace">
                 <div className="welcome">
                 <h1 className="mint">WELCOME...</h1>
                 <p style={{color: "#707793"}}>Scroll down to see what this is all about</p>
                 </div>
             </Jumbotron>
-            <Container fluid className="about remove-whitespace blue-background" style={{ marginTop: "10px", borderRadius: "30px"}}>
+            <Container fluid className="about remove-whitespace dark-background" style={{ marginTop: "10px", borderRadius: "30px"}}>
                 <Row>
                     <Col md={7} xs={12} className="about-text">
                         <div className="column-padding">
@@ -76,13 +111,10 @@ export default function Home() {
                                 and have taught myself multiple languages, the most recent of which is JavaScript (which this website is built upon).</p>
                             <p>So take a look around! Play the games, and check out the websites I've built.</p>
                             <div className="links">
-                                <h4 className="mint click" onClick={projectsScroll}>&lt;What I've been up to&gt;</h4>
-                                <h4 className="mint click" onClick={websitesScroll}>&lt;Real Websites&gt;</h4>
-                            </div>
-                            <p>Or feel free to get in contact with me! I'm always down for a chat. You can also see the code for everything live on GitHub</p>
-                            <div className="contact">
-                                <p><span><Telephone /></span> 0473 137 876</p>
-                                <p><span><Envelope /></span> brencoulter@hotmail.com</p>
+                                <h4 className="click" onClick={skillsScroll}>&lt;What I can do&gt;</h4>
+                                <h4 className="click" onClick={projectsScroll}>&lt;What I've been up to&gt;</h4>
+                                <h4 className="click" onClick={websitesScroll}>&lt;Real Websites&gt;</h4>
+                                <h4 className="click" onClick={contactScroll}>&lt;Just say hi&gt;</h4>
                             </div>
                         </div>
                     </Col>
@@ -91,13 +123,31 @@ export default function Home() {
                     </Col>
                 </Row>
             </Container>
+            <Container ref={skillsRef} fluid id="skills" className="blue-background remove-whitespace" style={{ marginTop: "10px", borderRadius: "30px"}}>
+                <Row className="title-row">
+                    <Col>
+                        <h2>&lt;TECHNOLOGIES&gt;</h2>  
+                        <p>Here's a list of the languages, frameworks, and other technologies I am familiar with, in roughly the order of proficiency</p>                      
+                    </Col>
+                </Row>
+                <Row>
+                {techIcons.map(icon => {
+                                return (
+                                    <Col  className="tech-icon-container" style={{minHeight: "190px", padding: "20px"}}>
+                                        <Image src={icon[0]} className="tech-icon" style={{width: "100px"}} />
+                                        <p className="icon-label">{icon[1]}</p>
+                                    </Col>
+                                )
+                            })}
+                </Row>   
+            </Container>
             <Container ref={projectsRef} fluid id="projects" className="dark-background remove-whitespace" style={{marginTop: "10px", borderRadius: "30px"}}>
                 <Row className="title-row">
                     <Col xs={12}>
                         <h2>&lt;PROJECTS&gt;</h2>
                     </Col>
                 </Row>
-                <Row className="info-rows">
+                <Row className="info-rows" style={{alignItems: "center"}}>
                     <Col lg={6} xs={{ span: 12, order: -1}} className="info-col">
                         <div className="column-padding">
                             <Controller fill={darker} className="icon"/>
@@ -110,7 +160,7 @@ export default function Home() {
                         <a href="https://the-game-brencoulter.vercel.app/" target="_blank" ><Image src={GameScreenshot} alt="Game Screenshot" className="full-width screenshot"/></a>
                     </Col>
                 </Row>
-                <Row className="info-rows blue-background">
+                <Row className="info-rows">
                     <Col xs={{span: 12, order: 2}} lg={6} className="image-col">
                         <a href="" target="_blank" ><Image src={GameScreenshot} alt="Game Screenshot" className="full-width screenshot"/></a>
                     </Col>
@@ -137,31 +187,7 @@ export default function Home() {
                     </Col>
                 </Row>
             </Container>
-            <Container ref={skillsRef} fluid id="skills" className="blue-background remove-whitespace" style={{ marginTop: "10px", borderRadius: "30px"}}>
-                <Row className="title-row">
-                    <Col>
-                        <h2>&lt;TECHNOLOGIES&gt;</h2>  
-                        <p>Tech I know</p>                      
-                    </Col>
-                </Row>
-                <Row>
-                {techIcons.map(icon => {
-                                return (
-                                    <Col xs={2} style={{minHeight: "30vw", padding: "50px"}}>
-                                        <Image src={icon[0]} className="tech-icon" style={{width: "100%"}} />
-                                        <p className="icon-label">{icon[1]}</p>
-                                    </Col>
-                                )
-                            })}
-                <Col xs={2}>
-                    <Github fill={darker} style={{fontSize: "15vw"}}/>
-                </Col>
-                <Col xs={2}>
-                    <Bootstrap fill={darker} style={{fontSize: "15vw"}}/>
-                </Col>
-                </Row>   
-            </Container>
-            <Container ref={websitesRef} fluid id="websites" className="dark-background remove-whitespace" style={{ marginTop: "10px", borderRadius: "30px"}}>
+            <Container ref={websitesRef} fluid id="websites" className="blue-background remove-whitespace" style={{ marginTop: "10px", borderRadius: "30px"}}>
                 <Row className="title-row">
                     <Col>
                         <h2 className="mint">&lt;WEBSITES&gt;</h2>                        
@@ -181,7 +207,7 @@ export default function Home() {
                         <a href="http://www.nutritionwithmelissa.com.au/" target="_blank"><Image className="full-width screenshot" src={Melissa} alt="Nutrition With Melissa" /></a>
                     </Col>
                 </Row>
-                <Row className="info-rows blue-background">
+                <Row className="info-rows">
                     <Col lg={6} xs={{span: 12, order: 2}}>
                         <a href="https://www.thisistraveling.com/" target="_blank"><Image className="full-width screenshot" src={Traveling} alt="Website Screenshot" /></a>
                     </Col>
@@ -210,7 +236,19 @@ export default function Home() {
                     </Col>
                 </Row> 
             </Container>
-
+            <Container ref={contactRef} fluid id="contact" className="dark-background remove-whitespace" style={{ marginTop: "10px", borderRadius: "30px"}}>
+                <Row className="title-row">
+                    <Col>
+                        <h2>&lt;Contact&gt;</h2>  
+                        <p>Nobody really wants a generic contact form, so just shoot me an email, give me a call, or check out my work on Github</p>
+                        <div className="contact">
+                            <p><span><Telephone /></span> 0473 137 876</p>
+                            <p><span><Github /></span> Github.com/Brencoulter</p>
+                            <p><span><Envelope /></span> brencoulter@hotmail.com</p>
+                        </div>                      
+                    </Col>
+                </Row>
+            </Container>
         </>
     )
 }
